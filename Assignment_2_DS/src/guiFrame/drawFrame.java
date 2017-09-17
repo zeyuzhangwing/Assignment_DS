@@ -28,6 +28,12 @@ import java.awt.Dimension;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import java.awt.ScrollPane;
+import javax.swing.JRadioButton;
+import java.awt.Canvas;
+import java.awt.Color;
+import javax.swing.Box;
+import java.awt.TextArea;
+import javax.swing.JTextPane;
 
 public class drawFrame {
 
@@ -47,13 +53,35 @@ public class drawFrame {
 			
 			toolBar_1 = new JToolBar();
 			toolBar_1.setOrientation(SwingConstants.VERTICAL);
-			toolBar_1.setBounds(6, 6, 50, 393);
+			toolBar_1.setBounds(3, 6, 66, 393);
 			frame.getContentPane().add(toolBar_1);
 			addButtons(toolBar_1);
 			
+			JRadioButton rdbtnNewRadioButton = new JRadioButton("10");
+			toolBar_1.add(rdbtnNewRadioButton);
+			
+			JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("20");
+			toolBar_1.add(rdbtnNewRadioButton_1);
+			
 			ScrollPane scrollPane = new ScrollPane();
-			scrollPane.setBounds(62, 6, 545, 393);
+			scrollPane.setBounds(75, 6, 532, 411);
 			frame.getContentPane().add(scrollPane);
+			
+			Canvas canvas = new Canvas();
+			frame.getContentPane().add(canvas);
+			canvas.setBackground(Color.WHITE);
+			
+			canvas.setBounds(75, 6, 532, 411);
+			
+			JToolBar toolBar = new JToolBar();
+			toolBar.setOrientation(SwingConstants.VERTICAL);
+			toolBar.setBounds(613, 6, 125, 411);
+			frame.getContentPane().add(toolBar);
+			
+			JTextPane txtpnChatArea = new JTextPane();
+			txtpnChatArea.setBackground(Color.LIGHT_GRAY);
+			txtpnChatArea.setText("Chat area");
+			toolBar.add(txtpnChatArea);
 			
 			addMenu();
 			
@@ -175,6 +203,4 @@ public class drawFrame {
 		toolBar_1.addSeparator();
 	
 	}
-	
-	
 }

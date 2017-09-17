@@ -1,38 +1,29 @@
 package guiFrame;
 
-import java.awt.EventQueue;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.RenderingHints;
+
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+
 import javax.swing.JMenu;
-import javax.swing.JPanel;
+
 import javax.swing.JToolBar;
 import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
-import javax.print.DocFlavor.URL;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
+
 import java.awt.event.ActionEvent;
-import java.awt.BorderLayout;
-import javax.swing.JPopupMenu;
-import java.awt.Component;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.Dimension;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import java.awt.ScrollPane;
 import javax.swing.JRadioButton;
 import java.awt.Canvas;
 import java.awt.Color;
-import javax.swing.Box;
-import java.awt.TextArea;
+
 import javax.swing.JTextPane;
 
 public class drawFrame {
@@ -48,6 +39,7 @@ public class drawFrame {
 	
 			
 		JFrame frame = new JFrame("Broad");
+		frame.setSize(754, 479);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.getContentPane().setLayout(null);
 			
@@ -62,10 +54,6 @@ public class drawFrame {
 			
 			JRadioButton rdbtnNewRadioButton_1 = new JRadioButton("20");
 			toolBar_1.add(rdbtnNewRadioButton_1);
-			
-			ScrollPane scrollPane = new ScrollPane();
-			scrollPane.setBounds(75, 6, 532, 411);
-			frame.getContentPane().add(scrollPane);
 			
 			Canvas canvas = new Canvas();
 			frame.getContentPane().add(canvas);
@@ -83,63 +71,59 @@ public class drawFrame {
 			txtpnChatArea.setText("Chat area");
 			toolBar.add(txtpnChatArea);
 			
-			addMenu();
+			//Mean bar create
+			JMenuBar menuBar = new JMenuBar();
+			frame.setJMenuBar(menuBar);
+			//one menu group name file
+			JMenu menuFile = new JMenu("File");
+			menuFile.setMnemonic(KeyEvent.VK_A);
+			menuFile.getAccessibleContext().setAccessibleDescription(
+			        "File operation menu");
+			menuBar.add(menuFile);
 			
+			JMenuItem menuItem = new JMenuItem("Save",KeyEvent.VK_S);//set hot key?
+			menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
+			menuItem.getAccessibleContext().setAccessibleDescription(
+			        "Save file");
+			menuFile.add(menuItem);
+			menuFile.addSeparator();
+			
+			
+			menuItem = new JMenuItem("Save as",
+	                new ImageIcon("circle.png"));// can set the icon here, need to find some image resoucre
+			menuFile.add(menuItem);
+			menuFile.addSeparator();
+
+			//menu for operation 
+			JMenu menuOperation = new JMenu("Operation");// this many need to rename
+			menuOperation.setMnemonic(KeyEvent.VK_O);
+			menuOperation.getAccessibleContext().setAccessibleDescription(
+			        "User operation");
+			menuBar.add(menuOperation);
+		
+			JMenuItem menuItem2 = new JMenuItem("Quite",KeyEvent.VK_Q);//set hot key?
+			menuItem2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, ActionEvent.ALT_MASK));
+			menuItem2.getAccessibleContext().setAccessibleDescription(
+			        "QUITE");
+			menuOperation.add(menuItem2);
+			menuOperation.addSeparator();
+			
+			
+			menuItem2 = new JMenuItem("Save as",
+	                new ImageIcon("circle.png"));// can set the icon here, need to find some image resoucre
+			menuOperation.add(menuItem2);
+			menuOperation.addSeparator();
+			
+			
+			menuItem = new JMenuItem(new ImageIcon("images/middle.gif"));
+			menuItem.setMnemonic(KeyEvent.VK_D);
+			menuFile.add(menuItem);
 			
 			//frame.setSize(300, 150);
 			frame.setVisible(true);
 
 }	
-	protected static void addMenu()
-	{
-		//Mean bar create
-		JMenuBar menuBar = new JMenuBar();
-		frame.setJMenuBar(menuBar);
-		//one menu group name file
-		JMenu menuFile = new JMenu("File");
-		menuFile.setMnemonic(KeyEvent.VK_A);
-		menuFile.getAccessibleContext().setAccessibleDescription(
-		        "File operation menu");
-		menuBar.add(menuFile);
-		
-		JMenuItem menuItem = new JMenuItem("Save",KeyEvent.VK_S);//set hot key?
-		menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
-		menuItem.getAccessibleContext().setAccessibleDescription(
-		        "Save file");
-		menuFile.add(menuItem);
-		menuFile.addSeparator();
-		
-		
-		menuItem = new JMenuItem("Save as",
-                new ImageIcon("circle.png"));// can set the icon here, need to find some image resoucre
-		menuFile.add(menuItem);
-		menuFile.addSeparator();
 
-		//menu for operation 
-		JMenu menuOperation = new JMenu("Operation");// this many need to rename
-		menuOperation.setMnemonic(KeyEvent.VK_O);
-		menuOperation.getAccessibleContext().setAccessibleDescription(
-		        "User operation");
-		menuBar.add(menuOperation);
-	
-		JMenuItem menuItem2 = new JMenuItem("Quite",KeyEvent.VK_Q);//set hot key?
-		menuItem2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_W, ActionEvent.ALT_MASK));
-		menuItem2.getAccessibleContext().setAccessibleDescription(
-		        "QUITE");
-		menuOperation.add(menuItem2);
-		menuOperation.addSeparator();
-		
-		
-		menuItem2 = new JMenuItem("Save as",
-                new ImageIcon("circle.png"));// can set the icon here, need to find some image resoucre
-		menuOperation.add(menuItem2);
-		menuOperation.addSeparator();
-		
-		
-		menuItem = new JMenuItem(new ImageIcon("images/middle.gif"));
-		menuItem.setMnemonic(KeyEvent.VK_D);
-		menuFile.add(menuItem);
-	}
 	protected static void addButtons(JToolBar toolBar)
 	{
 		//--------------------Button 0-------------------------

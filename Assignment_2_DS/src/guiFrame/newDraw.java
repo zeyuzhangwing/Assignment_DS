@@ -109,8 +109,7 @@ public class newDraw {
 				panel.addMouseMotionListener(drawer);
 			
 				
-		        //frame.pack();
-		
+		       
 		    frame.getContentPane().add(panel);
 			
 			
@@ -126,6 +125,7 @@ public class newDraw {
 			
 			//Mean bar create
 			JMenuBar menuBar = new JMenuBar();
+			addMenue(menuBar);
 			frame.setJMenuBar(menuBar);
 			//one menu group name file
 			frame.setVisible(true);
